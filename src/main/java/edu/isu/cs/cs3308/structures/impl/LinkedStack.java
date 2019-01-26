@@ -9,9 +9,7 @@ public class LinkedStack<E> implements Stack<E> {
     public LinkedStack() { data = new DoublyLinkedList<>(); }
 
     @Override
-    public void push(E element) {
-        data.addFirst(element);
-    }
+    public void push(E element) { data.addFirst(element); }
 
     @Override
     public E peek() {
@@ -19,9 +17,7 @@ public class LinkedStack<E> implements Stack<E> {
     }
 
     @Override
-    public E pop() {
-        return data.removeFirst();
-    }
+    public E pop() { return data.removeFirst(); }
 
     @Override
     public int size() {
@@ -35,9 +31,10 @@ public class LinkedStack<E> implements Stack<E> {
 
     @Override
     public void transfer(Stack<E> to){
-        if (data.isEmpty()) {}
+        if (this.isEmpty()) {}
+        else if (to == null){}
         else {
-            for (int i = 0; i < data.size(); i++) {
+            for (int i = 0; i < (this.size() + 1); i++) {
                 to.push(this.pop());
             }
         }
@@ -45,13 +42,11 @@ public class LinkedStack<E> implements Stack<E> {
 
     @Override
     public void reverse() {
-         LinkedStack<E> temp = new LinkedStack();
+        LinkedStack<E> temp = new LinkedStack();
+        LinkedStack<E> temp2 = new LinkedStack();
 
-        for (int i = 0; i < data.size(); i++) {
+        for (int i = 0; i < this.size(); i++) {
             temp.push(this.pop());
-        }
-        for (int i = 0; i < temp.size(); i++) {
-            this.push(temp.pop());
         }
 
     }
