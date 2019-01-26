@@ -124,7 +124,7 @@ public class DoublyLinkedList<E> implements List<E> {
         if (index < 0 || index >= size) {
             return null;
         }
-        Node<E> current = head;
+        Node<E> current = head.getNext();
         for (int i = 0; i < index - 1; i++)
             current = current.getNext();
 
@@ -157,7 +157,7 @@ public class DoublyLinkedList<E> implements List<E> {
     }
 
     public void printList(){
-        Node<E> current = head;
+        Node<E> current = head.getNext();
         for (int i = 0; i < size; i++){
             System.out.println(current.getElement());
             current = current.getNext();

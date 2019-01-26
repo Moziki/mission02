@@ -13,33 +13,39 @@ public class LinkedStack<E> implements Stack<E> {
         data.addFirst(element);
     }
 
+    @Override
     public E peek() {
-        return data.get(1);
+        return data.get(0);
     }
 
+    @Override
     public E pop() {
         return data.removeFirst();
     }
 
+    @Override
     public int size() {
         return data.size();
     }
 
+    @Override
     public boolean isEmpty() {
         return data.isEmpty();
     }
 
+    @Override
     public void transfer(Stack<E> to){
         if (data.isEmpty()) {}
         else {
             for (int i = 0; i < data.size(); i++) {
-                ((LinkedStack<E>)to).push(this.pop());
+                to.push(this.pop());
             }
         }
     }
 
+    @Override
     public void reverse() {
-        LinkedStack<E> temp = new LinkedStack();
+         LinkedStack<E> temp = new LinkedStack();
 
         for (int i = 0; i < data.size(); i++) {
             temp.push(this.pop());
@@ -50,10 +56,12 @@ public class LinkedStack<E> implements Stack<E> {
 
     }
 
+    @Override
     public void merge(Stack<E> other) {
 
     }
 
+    @Override
     public void printStack() {
         data.printList();
     }
