@@ -9,15 +9,15 @@ public class LinkedStack<E> implements Stack<E> {
     public LinkedStack() { data = new DoublyLinkedList<>(); }
 
     @Override
-    public void push(E element) { data.addFirst(element); }
+    public void push(E element) { this.data.addFirst(element); }
 
     @Override
     public E peek() {
-        return data.get(0);
+        return this.data.get(0);
     }
 
     @Override
-    public E pop() { return data.removeFirst(); }
+    public E pop() { return this.data.removeFirst(); }
 
     @Override
     public int size() {
@@ -34,7 +34,8 @@ public class LinkedStack<E> implements Stack<E> {
         if (this.isEmpty()) {}
         else if (to == null){}
         else {
-            for (int i = 0; i < (this.size() + 1); i++) {
+            int loopControl = this.size();
+            for (int i = 0; i < loopControl; i++) {
                 to.push(this.pop());
             }
         }
@@ -44,15 +45,45 @@ public class LinkedStack<E> implements Stack<E> {
     public void reverse() {
         LinkedStack<E> temp = new LinkedStack();
         LinkedStack<E> temp2 = new LinkedStack();
-
-        for (int i = 0; i < this.size(); i++) {
+        int loopControl = this.size();
+        for (int i = 0; i < loopControl; i++) {
             temp.push(this.pop());
+        }
+        for (int i = 0; i < loopControl; i++) {
+            temp2.push(temp.pop());
+        }
+        for (int i = 0; i < loopControl; i++) {
+            this.push(temp2.pop());
         }
 
     }
 
     @Override
     public void merge(Stack<E> other) {
+        if (this.isEmpty() || other == null) {}
+        else {
+            LinkedStack<E> temp = new LinkedStack();
+            LinkedStack<E> temp2 = new LinkedStack();
+            int paramSize = other.size();
+            int thisSize = this.size();
+
+            for (int i = 0; i < thisSize; i++){
+                temp.push(this.pop());
+            }
+            for (int i = 0; i < paramSize; i++) {
+                temp2.push(other.pop());
+            }
+            for (int i = 0; i < paramSize; i++) {
+                this.push(temp2.peek());
+                other.push(temp2.pop());
+            }
+            for (int i = 0; i < thisSize; i++) {
+                this.push(temp.pop());
+            }
+        }
+
+
+
 
     }
 

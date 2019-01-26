@@ -24,7 +24,7 @@ Implement a `Stack` ADT using a doubly-linked list, call this class a `LinkedSta
     * `public void reverse()` -- This method reverses the contents of the stack on which the method is called. The implementation of this method requires the use of two temporary stacks and the transfer method. **Note: Although you have access to the underlying list, you may only use the methods defined by the Stack ADT to complete this task.**
     * `public void merge(Stack<E> from)` -- This method takes the contents of the provided stack, `from`, and adds it to the bottom of the stack the method is called on. Note that this method should not destroy (leave empty) the provided stack. **Note: Although you have access to the underlying list, you may only use the methods defined by the Stack ADT to complete this task. Also be sure that you are not attempting to move data from a null stack.**
 8. Be sure to test all of your implementations using the provided unit tests and the `Driver` class.
-9. Implement a postfix expression evaluator in the class `PostFix` in the method with header `public static String evalPostFix(String infix).` The goal is to use a stack to build up the answer until a single value remains.
+9. Implement a postfix expression ePostFix` in the method with header `public static String evalvaluator in the class `PostFix(String infix).` The goal is to use a stack to build up the answer until a single value remains.
 10. The postfix evaluation method should throw an `IllegalArgumentException` if it detects that there are too few expressions for a given operator.
 
 ## Submission
