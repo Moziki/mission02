@@ -10,7 +10,7 @@
 ## Problem Statement
 Implement a `Stack` ADT using a doubly-linked list, call this class a `LinkedStack`. Included in this Stack ADT are three non-wrapper methods. Futherore, design and implement an approach using a stack to evaluate expressions written in the postfix format.
 
-**_Postfix notation_** is an unambiguous way of writing an arithmetic expression without parentheses. It is defined so fthat if `"(exp1) op (exp2)"` is a normal fully parenthesized expression whose operation is **op**, the postfix version of this is `"pexp1 pexp2 op"`, where `pexp1` is the postfix version of `exp1` and `pexp2` is the postfix version of `exp2`. The postfix version of a single number or variable is just that number or variable. So, for example, the postfix version of `"((5 + 2) * (9 - 3)) / 4"` is "5 2 + 0 3 - * 4 /". We can easily use stacks and their basic operations to evaluate such postfix expressions.
+**_Postfix notation_** is an unambiguous way of writing an arithmetic expression without parentheses. It is defined so fthat if `"(exp1) op (exp2)"` is a normal fully parenthesized expression whose operation is **op**, the postfix version of this is `"pexp1 pexp2 op"`, where `pexp1` is the postfix version of `exp1` and `pexp2` is the postfix version of `exp2`. The postfix version of a single number or variable is just that number or variable. So, for example, the postfix version of `"((5 + 2) * (9 - 3)) / 4"` is "5 2 + 9 3 - * 4 /". We can easily use stacks and their basic operations to evaluate such postfix expressions.
 
 ## Assignment
 1. Fork this repository

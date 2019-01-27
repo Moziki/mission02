@@ -2,10 +2,21 @@ package edu.isu.cs.cs3308.structures.impl;
 
 import edu.isu.cs.cs3308.structures.Stack;
 
+//Dan Walker
+//CS3308
+//MISSION: 02
+//Objective: Gain experience with stacks/doubly linked lists/Postfix expressions
+
+//Stack ADT class. Used for accessing & storing all data
+//implements all methods from interface Stack<E>
+//Calls upon methods in DoublyLinkedStack for all actions
 public class LinkedStack<E> implements Stack<E> {
 
+    //The underlying data structure
     DoublyLinkedList<E> data;
 
+    //CONSTRUCTOR
+    //creates a new DoublyLinkedList as the data variable
     public LinkedStack() { data = new DoublyLinkedList<>(); }
 
     @Override
@@ -41,6 +52,10 @@ public class LinkedStack<E> implements Stack<E> {
         }
     }
 
+    //Reverses order of nodes in stack
+    // First: pops all nodes to a temp stack (order reversed)
+    // Second: pops all nodes to a second temp stack (original order)
+    // Finally: pops all nodes to the original stack (order reversed)
     @Override
     public void reverse() {
         LinkedStack<E> temp = new LinkedStack();
@@ -57,26 +72,34 @@ public class LinkedStack<E> implements Stack<E> {
         }
 
     }
-
+    //Adds the provided stack to the bottom of the stack the method is called on
+    //@param other - the stack that will be added to the bottom of the called on stack
     @Override
     public void merge(Stack<E> other) {
         if (this.isEmpty() || other == null) {}
         else {
             LinkedStack<E> temp = new LinkedStack();
             LinkedStack<E> temp2 = new LinkedStack();
+
+            //paramSize & thisSize -to make sure method still works if stacks are
+                                        //different sizes
             int paramSize = other.size();
             int thisSize = this.size();
-
+            //moves nodes of called on stack to temp stack
             for (int i = 0; i < thisSize; i++){
                 temp.push(this.pop());
             }
+            //moves nodes of param stack to temp2 stack (to ensure original order is kept when added)
             for (int i = 0; i < paramSize; i++) {
                 temp2.push(other.pop());
             }
+            //First: Called on stack pushes node from temp2 without removing
+            //Second: param stack pushes node from temp 2 (Pop: removes the element from temp2)
             for (int i = 0; i < paramSize; i++) {
                 this.push(temp2.peek());
                 other.push(temp2.pop());
             }
+            //puts the original elements from called on stack back on top
             for (int i = 0; i < thisSize; i++) {
                 this.push(temp.pop());
             }
